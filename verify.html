@@ -1,0 +1,200 @@
+<!--
+=========================================================
+Material Kit - v2.0.7
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-kit
+Copyright 2020 Creative Tim (https://www.creative-tim.com/)
+
+Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    AlgoTrust Homepage
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="./assets/css/material-kit.css?v=2.0.7" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="index-page sidebar-collapse">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg bg-dark" style="background-color: black;" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="./index.html">
+          AlgoTrust </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" href="./verify.html" data-placement="bottom" data-original-title="Check if the document that you received is consistent with the one on the smart contract">
+              <i class="material-icons">fact_check</i> Verify Document
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" href="./issue_doc.html" data-placement="bottom" data-original-title="Issue a document on the smart contract">
+              <i class="material-icons">publish</i> Issue Document
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()"> -->
+            <a class="nav-link" rel="tooltip" href="./new_wallet.html" data-placement="bottom" data-original-title="Create an Algorand wallet">
+              <i class="material-icons">account_balance_wallet</i> Create Wallet
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main main-raised">
+    <div class="section section-basic">
+      <div class="container">
+        <div class="section text-center">
+          <h2 class="title" style="text-align: left;">Verify Document</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="description" style="text-align: left;">Copy and paste the document content on the container on the right, or choose a file from your computer and upload it below.</h5>
+
+
+
+              <script type = "text/javascript" src="verify.js"></script>
+
+
+              <form accept=".json" method="POST"> <!-- redirect to action landing page -->
+                <div class="row" style="margin-left: -8px;">
+                  <div class="col-md-3" style="padding: 0; text-align: left; padding-right: 0px;">
+                    <label for="actual-file-btn" class="btn btn-info">Select File</label>
+                    <input id="actual-file-btn" style="visibility:hidden;" type="file">
+                  </div>
+                  <div class="col-md-5" style="padding: 0; margin-top: 14px; text-align: left;">
+                    <span id="file-chosen">No file chosen</span>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="submit" class="btn btn-info btn-raised" onclick="customVerificationBuilder().then(console.log).catch(console.log)">
+                  </div>
+                </div>
+
+                <script> // Script to read file name and return that to a more stylized div
+                  const actualBtn = document.getElementById('actual-file-btn');
+                  const fileChosen = document.getElementById('file-chosen');
+                  
+                  actualBtn.addEventListener('change', function(){
+                    fileChosen.textContent = this.files[0].name
+                  })
+                </script>
+
+                <script>
+                  function readImage(file) {
+                    const reader = new FileReader();
+                    reader.addEventListener('load', (event) => {
+                      img.src = event.target.result;
+                    });
+                    reader.readAsDataURL(file);
+                  }
+                </script>
+
+                <!-- <input type="file" id="myFile" name="filename"> -->
+              </form>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <tt><textarea rows="25" cols="70" id="exampleMessage"></textarea></tt>
+                <div class="col-md-4 ml-auto mr-1 text-center">
+                  <button class="btn btn-info btn-raised">
+                    Submit Content
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" data-background-color="black">
+    <div class="container">
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, AlgoTrust.
+      </div>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="./assets/js/plugins/moment.min.js"></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/material-kit.js?v=2.0.7" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+      //init DateTimePickers
+      materialKit.initFormExtendedDatetimepickers();
+
+      // Sliders Init
+      materialKit.initSliders();
+    });
+
+
+    function scrollToDownload() {
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+
+</html>

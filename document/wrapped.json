@@ -1,0 +1,21 @@
+{
+  "version": "https://schema.openattestation.com/2.0/schema.json",
+  "data": {
+    "issuers": [
+      {
+        "documentStore": "ffbab548-e085-4a2c-b64a-6068e13d71f4:string:0xabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",
+        "name": "272e8688-9d13-491d-b7eb-b0b6beefb1bc:string:University of Blockchain",
+        "identityProof": {
+          "type": "96fc4f6a-eed7-4dbb-ab6d-32815324e09b:string:DNS-TXT",
+          "location": "6d5be217-3ca5-48e4-a9db-9e914ddd1b52:string:example.com"
+        }
+      }
+    ]
+  },
+  "signature": {
+    "type": "SHA3MerkleProof",
+    "targetHash": "68eb43125222b70b574490adc8de8d6722b0dd744fba40ac57cd42afdf0da900",
+    "proof": [],
+    "merkleRoot": "68eb43125222b70b574490adc8de8d6722b0dd744fba40ac57cd42afdf0da900"
+  }
+}

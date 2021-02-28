@@ -1,0 +1,21 @@
+{
+  "$template": {
+    "name": "main",
+    "type": "EMBEDDED_RENDERER",
+    "url": "https://tutorial-renderer.openattestation.com"
+  },
+  "recipient": {
+    "name": "John Doe"
+  },
+  "issuers": [
+    {
+      "name": "Demo Issuer",
+      "documentStore": "0xe488940C2275A38945084e9312f43E9CD0953aF0",
+      "identityProof": {
+        "type": "DNS-TXT",
+        "location": "disappointed-tomato-cat.sandbox.openattestation.com"
+      }
+    }
+  ]
+}
+
